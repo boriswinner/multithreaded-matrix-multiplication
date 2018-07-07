@@ -15,7 +15,7 @@ public:
     explicit Matrix(const vector<vector<DTYPE>> &data) : data_(data), sizerow_(data.size()),
                                                          sizecol_(data[0].size()) {}
 
-    void multiply_row(int i, const Matrix &that, vector<DTYPE> &result_row);
+    void multiply_rows(const Matrix &that, vector<vector<int>> &result_data, int start_row, int end_row);
 
     friend ostream &operator<<(ostream &stream, const Matrix &matrix);
 

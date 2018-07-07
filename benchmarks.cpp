@@ -75,6 +75,36 @@ BENCHMARK("Huge quad-threaded multiplication", [](benchpress::context* ctx) {
     }
 })
 
+BENCHMARK("Huge 5-threaded multiplication", [](benchpress::context* ctx) {
+    for (size_t i = 0; i < ctx->num_iterations(); ++i) {
+            vector<vector<DTYPE>> a_data(100, vector<DTYPE>(100, 1));
+            vector<vector<DTYPE>> b_data(100, vector<DTYPE>(100, 1));
+            Matrix a(a_data);
+            Matrix b(b_data);
+            Matrix c = a.multiply_in_threads(b, 5);
+    }
+})
+
+BENCHMARK("Huge 6-threaded multiplication", [](benchpress::context* ctx) {
+    for (size_t i = 0; i < ctx->num_iterations(); ++i) {
+            vector<vector<DTYPE>> a_data(100, vector<DTYPE>(100, 1));
+            vector<vector<DTYPE>> b_data(100, vector<DTYPE>(100, 1));
+            Matrix a(a_data);
+            Matrix b(b_data);
+            Matrix c = a.multiply_in_threads(b, 6);
+    }
+})
+
+BENCHMARK("Huge 7-threaded multiplication", [](benchpress::context* ctx) {
+    for (size_t i = 0; i < ctx->num_iterations(); ++i) {
+        vector<vector<DTYPE>> a_data(100, vector<DTYPE>(100, 1));
+        vector<vector<DTYPE>> b_data(100, vector<DTYPE>(100, 1));
+        Matrix a(a_data);
+        Matrix b(b_data);
+        Matrix c = a.multiply_in_threads(b, 7);
+    }
+})
+
 BENCHMARK("Huge octa-threaded multiplication", [](benchpress::context* ctx) {
     for (size_t i = 0; i < ctx->num_iterations(); ++i) {
         vector<vector<DTYPE>> a_data(100, vector<DTYPE>(100, 1));
